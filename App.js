@@ -1,16 +1,17 @@
-import './App.css';
-​
-//Components & Pages to IMPORT
-import React, {useEffect, useState} from "react";
-import {Route,BrowserRouter as Router, Redirect} from 'react-router-dom'
+​import React from 'react';
+import {Route, BrowserRouter as Router, Redirect} from 'react-router-dom';
+import "./App.css";
+
 import Header from "./components/Header";
-import Login from "./pages/Login/index.js";
-import Logout from "./pages/Logout/index.js";
-import Signup from "./pages/Signup/index.js";
-import UserProfile from "./pages/UserProfile/index.js";
+import Login from "./pages/Login";
+import Logout from "./pages/Logout";
+import Signup from "./pages/Signup"
+import UserProfile from "./pages/UserProfile";
+
 import * as firebase from "firebase/app";
 import "firebase/auth";
-​
+
+
 var firebaseConfig = {
     apiKey: "AIzaSyDpxI0Gc4OHyfVY8H0B7k-TM-Yq_fABR50",
     authDomain: "exercisefive-3a5f0.firebaseapp.com",
@@ -35,11 +36,11 @@ useEffect(() => {
   // You can also set this as a cookie but we will use
   // it in session storage
   firebase
-  .auth()
-  .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-  .catch(function(error) {
-    console.log('error', error);
-  });
+    .auth()
+    .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .catch(function(error) {
+      console.log('error', error);
+    });
 }, [firebaseConfig])
 ​
 useEffect(() => {
